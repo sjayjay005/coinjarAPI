@@ -7,9 +7,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.IO;
-using System.Reflection;
 
 namespace CoinJar.Api.Extensions
 {
@@ -26,8 +23,8 @@ namespace CoinJar.Api.Extensions
                     Description = "This documentation provides information about Coin Jar Api endpoints",
                     Contact = new Microsoft.OpenApi.Models.OpenApiContact
                     {
-                        Name = Siphumelelise Jay Ntshwenyese",
-                        Email = sjayjay005@gmail.com
+                        Name = "Siphumelelise Jay Ntshwenyese",
+                        Email = "sjayjay005@gmail.com"
                     },
                 });
                 x.EnableAnnotations();
@@ -40,8 +37,10 @@ namespace CoinJar.Api.Extensions
         {
             app.UseSwagger().UseSwaggerUI(options =>
             {
+
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Coin Jar Api");
                 options.DocumentTitle = "Coin Jar Api";
+
             });
 
             return app;
@@ -51,6 +50,7 @@ namespace CoinJar.Api.Extensions
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("CoinJar.Data")));
+
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICoinService, CoinService>();

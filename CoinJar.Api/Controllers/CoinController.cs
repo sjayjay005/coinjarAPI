@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using CoinJar.Core.Interfaces;
 using CoinJar.Service.Services;
 using Microsoft.AspNetCore.Mvc;
 using CoinJar.Api.Model.Requests;
